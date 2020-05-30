@@ -1,2 +1,16 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<%=form_tag root_path, :method => 'POST' do %>
+  <%= text_field_tag 'checker',nil, placeholder: "Enter" , size: 50 %>
+  <%=submit_tag 'Search'%>
+<%end%>
+<%if @data%>
+  <%if @data == "" %>
+    @nothing
+  <%end%>
+  <%=@data.company_name%></br>
+<%elsif @nothing %>
+  <%= @nothing.to_s %>
+<%end%>
+<%if @error%>
+<%end%>
