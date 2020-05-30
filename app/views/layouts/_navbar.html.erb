@@ -1,7 +1,9 @@
 <nav class="navbar navbar-light bg-light">
   <%=link_to "Home", root_path, class:'navbar-brand' %>
   <%=link_to "Index",home_about_path,class:'navbar-brand'%>
-    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-    Bootstrap
-  </a>
+  <%if user_signed_in?%>
+    <%=link_to "Log out",destroy_user_session_path,:method => :delete , class:'navbar-brand'%>
+  <%elsif%>
+    <%=link_to "Sign In",new_user_session_path, class:'navbar-brand'%>
+  <%end%>
 </nav>
